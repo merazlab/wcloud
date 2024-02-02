@@ -30,7 +30,9 @@ def main(args):
     config_path = args.config_path
 
     configs = load_config_data(config_path)
-
+    print(type(configs))
+    print(configs)
+    exit()
     dataset_config = configs['dataset_params']
     train_dataloader_config = configs['train_data_loader']
     val_dataloader_config = configs['val_data_loader']
