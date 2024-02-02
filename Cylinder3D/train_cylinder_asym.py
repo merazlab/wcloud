@@ -11,7 +11,7 @@ import numpy as np
 import torch
 import torch.optim as optim
 from tqdm import tqdm
-
+import pdb
 from utils.metric_util import per_class_iu, fast_hist_crop
 from dataloader.pc_dataset import get_SemKITTI_label_name
 from builder import data_builder, model_builder, loss_builder
@@ -32,7 +32,7 @@ def main(args):
     configs = load_config_data(config_path)
     print(type(configs))
     print(configs)
-    exit()
+
     dataset_config = configs['dataset_params']
     train_dataloader_config = configs['train_data_loader']
     val_dataloader_config = configs['val_data_loader']
@@ -69,6 +69,7 @@ def main(args):
                                                                   val_dataloader_config,
                                                                   grid_size=grid_size)
 
+    exit()
     # training
     epoch = 0
     best_val_miou = 0
@@ -81,6 +82,7 @@ def main(args):
         pbar = tqdm(total=len(train_dataset_loader))
         time.sleep(10)
         # lr_scheduler.step(epoch)
+        pdb.set_trace()
         for i_iter, (_, train_vox_label, train_grid, _, train_pt_fea) in enumerate(train_dataset_loader):
             if global_iter % check_iter == 0 and epoch >= 1:
                 my_model.eval()
