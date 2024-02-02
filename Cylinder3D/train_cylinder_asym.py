@@ -54,26 +54,26 @@ def main(args):
     unique_label = np.asarray(sorted(list(SemKITTI_label_name.keys())))[1:] - 1
     unique_label_str = [SemKITTI_label_name[x] for x in unique_label + 1]
 
-    my_model = model_builder.build(model_config)
-    if os.path.exists(model_load_path):
-        my_model = load_checkpoint(model_load_path, my_model)
+    # my_model = model_builder.build(model_config)
+    # if os.path.exists(model_load_path):
+    #     my_model = load_checkpoint(model_load_path, my_model)
 
-    my_model.to(pytorch_device)
-    optimizer = optim.Adam(my_model.parameters(), lr=train_hypers["learning_rate"])
+    # my_model.to(pytorch_device)
+    # optimizer = optim.Adam(my_model.parameters(), lr=train_hypers["learning_rate"])
 
-    loss_func, lovasz_softmax = loss_builder.build(wce=True, lovasz=True,
-                                                   num_class=num_class, ignore_label=ignore_label)
+    # loss_func, lovasz_softmax = loss_builder.build(wce=True, lovasz=True,
+    #                                                num_class=num_class, ignore_label=ignore_label)
 
     train_dataset_loader, val_dataset_loader = data_builder.build(dataset_config,
                                                                   train_dataloader_config,
                                                                   val_dataloader_config,
                                                                   grid_size=grid_size)
 
-    exit()
+    
     # training
     epoch = 0
     best_val_miou = 0
-    my_model.train()
+    # my_model.train()
     global_iter = 0
     check_iter = train_hypers['eval_every_n_steps']
 
