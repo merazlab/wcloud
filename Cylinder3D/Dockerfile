@@ -1,4 +1,5 @@
-FROM nvidia/cuda:10.2-cudnn8-devel-ubuntu18.04
+# FROM nvidia/cuda:10.2-cudnn8-devel-ubuntu18.04
+FROM apolloauto/apollo:10.2-cudnn8-devel-ubuntu18.04
 
 # Just in case we need it
 ENV DEBIAN_FRONTEND noninteractive
