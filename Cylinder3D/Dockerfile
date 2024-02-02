@@ -1,10 +1,11 @@
 # FROM nvidia/cuda:10.2-cudnn8-devel-ubuntu18.04
-FROM nvidia/cuda:11.1.1-cudnn8-devel
+# docker pull nvidia/cuda:11.1.1-cudnn8-runtime
+FROM apolloauto/apollo:10.2-cudnn8-devel-ubuntu18.04
 
 # Just in case we need it
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt update && apt upgrade -y
+RUN apt update 
 RUN apt install -y python3 python3-dev python3-pip
 RUN pip3 install --upgrade pip
 RUN apt install -y git wget unzip
