@@ -164,4 +164,4 @@ if __name__ == '__main__':
 
     print(' '.join(sys.argv))
     print(args)
-    main(args)
+    # main(args)
